@@ -1221,6 +1221,10 @@ end
 
 
 local function set_host_header(balancer_data)
+  if balancer_data.preserve_host == true then
+    return true
+  end
+
   -- set the upstream host header if not `preserve_host`
   local upstream_host = var.upstream_host
   local orig_upstream_host = upstream_host
